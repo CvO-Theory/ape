@@ -18,8 +18,8 @@
 package org.pneditor.editor.filechooser;
 
 import java.io.File;
+
 import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileFilter;
 
 /**
  *
@@ -51,13 +51,13 @@ public class FileChooserDialog extends JFileChooser {
 		}
 	}
 
-	@Override
-	public void addChoosableFileFilter(FileFilter filter) {
-		super.addChoosableFileFilter(filter);
-		if (getChoosableFileFilters().length > 1) { // first filter is always "All files"
-			setFileFilter(getChoosableFileFilters()[1]);
-		}
-	}
+//	@Override
+//	public void addChoosableFileFilter(FileFilter filter) {
+//		super.addChoosableFileFilter(filter);
+//		if (getChoosableFileFilters().length > 1) { // first filter is always "All files"
+//			setFileFilter(getChoosableFileFilters()[1]);
+//		}
+//	}
 
 	public Sidebar getSidebar() {
 		return sidebar;

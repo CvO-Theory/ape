@@ -21,14 +21,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.List;
+
 import javax.swing.AbstractAction;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import org.pneditor.petrinet.Document;
+
 import org.pneditor.editor.Root;
 import org.pneditor.editor.filechooser.FileChooserDialog;
 import org.pneditor.editor.filechooser.FileType;
 import org.pneditor.editor.filechooser.FileTypeException;
+import org.pneditor.petrinet.Document;
 import org.pneditor.util.GraphicsTools;
 
 /**
@@ -63,10 +65,15 @@ public class OpenFileAction extends AbstractAction {
 		) {
 			FileChooserDialog chooser = new FileChooserDialog();
 
-			for (FileType fileType : fileTypes) {
-				chooser.addChoosableFileFilter(fileType);
-			}
-			chooser.setAcceptAllFileFilterUsed(false);
+			// deleted because there is only one filetype in this dialog
+//			for (FileType fileType : fileTypes) {
+//				chooser.addChoosableFileFilter(fileType);
+//			}
+//			chooser.setAcceptAllFileFilterUsed(false);
+			
+			// this is the filetype for the OpenDialog
+			chooser.setFileFilter(fileTypes.get(0));
+			
 			chooser.setCurrentDirectory(root.getCurrentDirectory());
 
 			if (chooser.showOpenDialog(root.getParentFrame()) == JFileChooser.APPROVE_OPTION) {
