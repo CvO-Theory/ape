@@ -37,6 +37,7 @@ public class FileChooserDialog extends JFileChooser {
 	@Override
 	public File getSelectedFile() {
 		File file = super.getSelectedFile();
+		System.out.println(file);
 		if (file == null) {
 			return null;
 		}

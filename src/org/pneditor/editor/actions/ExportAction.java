@@ -51,16 +51,17 @@ public class ExportAction extends AbstractAction {
 	public void actionPerformed(ActionEvent e) {
 		FileChooserDialog chooser = new FileChooserDialog();
 
-		if (root.getCurrentFile() != null) {
-			chooser.setSelectedFile(new File(StringTools.getExtensionCutOut(root.getCurrentFile().getName())));
-		}
-
 		for (FileType fileType : fileTypes) {
 			chooser.addChoosableFileFilter(fileType);
 		}
-		chooser.setAcceptAllFileFilterUsed(false);
+		//chooser.setAcceptAllFileFilterUsed(false);
+		chooser.setFileFilter(fileTypes.get(0));
 		chooser.setCurrentDirectory(root.getCurrentDirectory());
-
+		
+		if (root.getCurrentFile() != null) {
+			chooser.setSelectedFile(new File(StringTools.getExtensionCutOut(root.getCurrentFile().getName())));
+		}
+		
 		if (chooser.showDialog(root.getParentFrame(), "Export") == JFileChooser.APPROVE_OPTION) {
 			File file = chooser.getSelectedFile();
 			FileType chosenFileType = (FileType)chooser.getFileFilter();

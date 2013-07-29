@@ -34,6 +34,7 @@ import javax.swing.event.*;
 import org.pneditor.editor.actions.*;
 import org.pneditor.editor.actions.algorithms.BoundednessAction;
 import org.pneditor.editor.canvas.*;
+import org.pneditor.editor.filechooser.AptFileType;
 import org.pneditor.editor.filechooser.EpsFileType;
 import org.pneditor.editor.filechooser.FileType;
 import org.pneditor.editor.filechooser.FileTypeException;
@@ -436,6 +437,7 @@ public class RootPflow implements Root, WindowListener, ListSelectionListener, S
 		List<FileType> importFiletypes = new LinkedList<FileType>();
 		importFiletypes.add(new ViptoolPnmlFileType());
 		List<FileType> exportFiletypes = new LinkedList<FileType>();
+		exportFiletypes.add(new AptFileType());
 		exportFiletypes.add(new ViptoolPnmlFileType());
 		exportFiletypes.add(new EpsFileType());
 		exportFiletypes.add(new PngFileType());
