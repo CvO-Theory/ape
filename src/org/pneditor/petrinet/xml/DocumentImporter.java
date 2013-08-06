@@ -17,6 +17,7 @@
 
 package org.pneditor.petrinet.xml;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.io.File;
 import java.io.FileInputStream;
@@ -141,6 +142,7 @@ public class DocumentImporter {
 		subnet.setId(xmlSubnet.id);
 		subnet.setLabel(xmlSubnet.label);
 		subnet.setCenter(xmlSubnet.x, xmlSubnet.y);
+		subnet.setColor(new Color(xmlSubnet.color));
 		for (XmlArc xmlArc : xmlSubnet.arcs) {
 			subnet.addElement((Arc)getObject(xmlArc));
 		}
@@ -181,6 +183,7 @@ public class DocumentImporter {
 			breakPoints.add(new Point(xmlPoint.x, xmlPoint.y));
 		}
 		arc.setBreakPoints(breakPoints);
+		arc.setColor(new Color(xmlArc.color));
 		return arc;
 	}
 	
@@ -190,6 +193,7 @@ public class DocumentImporter {
 		place.setLabel(xmlPlace.label);
 		place.setStatic(xmlPlace.isStatic);
 		place.setCenter(xmlPlace.x, xmlPlace.y);
+		place.setColor(new Color(xmlPlace.color));
 		return place;
 	}
 	
@@ -198,6 +202,7 @@ public class DocumentImporter {
 		transition.setId(xmlTransition.id);
 		transition.setLabel(xmlTransition.label);
 		transition.setCenter(xmlTransition.x, xmlTransition.y);
+		transition.setColor(new Color(xmlTransition.color));
 		return transition;
 	}
 	
@@ -206,6 +211,7 @@ public class DocumentImporter {
 		ReferencePlace referencePlace = new ReferencePlace(connectedPlaceNode);
 		referencePlace.setId(xmlReference.id);
 		referencePlace.setCenter(xmlReference.x, xmlReference.y);
+		referencePlace.setColor(new Color(xmlReference.color));
 		return referencePlace;
 	}
 	
@@ -219,6 +225,7 @@ public class DocumentImporter {
 			breakPoints.add(new Point(xmlPoint.x, xmlPoint.y));
 		}
 		referenceArc.setBreakPoints(breakPoints);
+		referenceArc.setColor(new Color(xmlReferenceArc.color));
 		return referenceArc;
 	}
 	

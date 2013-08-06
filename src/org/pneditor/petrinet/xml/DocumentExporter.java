@@ -17,6 +17,7 @@
 
 package org.pneditor.petrinet.xml;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.io.File;
@@ -108,6 +109,7 @@ public class DocumentExporter {
 		xmlSubnet.label = subnet.getLabel();
 		xmlSubnet.x = subnet.getCenter().x;
 		xmlSubnet.y = subnet.getCenter().y;
+		xmlSubnet.color = subnet.getColor().getRGB();
 		for (Element element : subnet.getElements()) {
 			if (element instanceof Subnet) {
 				xmlSubnet.subnets.add(getXmlSubnet((Subnet)element, initialMarking));
@@ -136,6 +138,7 @@ public class DocumentExporter {
 		xmlPlace.id = place.getId();
 		xmlPlace.x = place.getCenter().x;
 		xmlPlace.y = place.getCenter().y;
+		xmlPlace.color = place.getColor().getRGB();
 		xmlPlace.isStatic = place.isStatic();
 		xmlPlace.label = place.getLabel();
 		xmlPlace.tokens = initialMarking.getTokens(place);
@@ -148,6 +151,7 @@ public class DocumentExporter {
 		xmlTransition.x = transition.getCenter().x;
 		xmlTransition.y = transition.getCenter().y;
 		xmlTransition.label = transition.getLabel();
+		xmlTransition.color = transition.getColor().getRGB();
 		return xmlTransition;
 	}
 	
@@ -179,7 +183,9 @@ public class DocumentExporter {
 			xmlPoint.y = point.y;
 			xmlArc.breakPoints.add(xmlPoint);
 		}
+		xmlArc.color = arc.getColor().getRGB();
 		return xmlArc;
+		
 	}
 	
 	private XmlReferencePlace getXmlReferencePlace(ReferencePlace referencePlace) {
@@ -188,6 +194,7 @@ public class DocumentExporter {
 		xmlReferencePlace.x = referencePlace.getCenter().x;
 		xmlReferencePlace.y = referencePlace.getCenter().y;
 		xmlReferencePlace.connectedPlaceId = referencePlace.getConnectedPlaceNode().getId();
+		xmlReferencePlace.color = referencePlace.getColor().getRGB();
 		return xmlReferencePlace;
 	}
 	
@@ -206,6 +213,7 @@ public class DocumentExporter {
 			xmlPoint.y = point.y;
 			xmlReferenceArc.breakPoints.add(xmlPoint);
 		}
+		xmlReferenceArc.color = referenceArc.getColor().getRGB();
 		return xmlReferenceArc;
 	}
 }

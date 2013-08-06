@@ -307,6 +307,7 @@ public class RootPflow implements Root, WindowListener, ListSelectionListener, S
 	protected Action replaceSubnet;
 	protected Action saveSubnetAs;
 	protected Action cutAction, copyAction, pasteAction, selectAllAction;
+	protected Action setColor;
 	
 	//per application
 	protected Action openSubnet;
@@ -354,6 +355,9 @@ public class RootPflow implements Root, WindowListener, ListSelectionListener, S
 		boolean areTransitions = !selection.getTransitions().isEmpty();
 		boolean roleSelected = !roleEditor.getSelectedElements().isEmpty();
 		boolean isParent = !document.petriNet.isCurrentSubnetRoot();
+		boolean isElement = clickedElement instanceof Element;
+
+		
 
 		cutAction.setEnabled(isCutable);
 		copyAction.setEnabled(isCopyable);
@@ -373,6 +377,7 @@ public class RootPflow implements Root, WindowListener, ListSelectionListener, S
 		undo.setEnabled(getUndoManager().isUndoable());
 		redo.setEnabled(getUndoManager().isRedoable());
 		setPlaceStatic.setEnabled(isPlaceNode);
+		setColor.setEnabled(isElement);
 	}
 	
     @Override
@@ -460,6 +465,7 @@ public class RootPflow implements Root, WindowListener, ListSelectionListener, S
 		openSubnet = new OpenSubnetAction(this);
 		closeSubnet = new CloseSubnetAction(this);
 		delete = new DeleteAction(this);
+		setColor = new SetColorAction(this);
 
 		cutAction = new CutAction(this);
 		copyAction = new CopyAction(this);
@@ -580,6 +586,7 @@ public class RootPflow implements Root, WindowListener, ListSelectionListener, S
 		editMenu.add(delete);
 		
 		elementMenu.add(setLabel);
+		elementMenu.add(setColor);
 		elementMenu.addSeparator();
 		elementMenu.add(setTokens);
 		elementMenu.add(setPlaceStatic);
@@ -606,16 +613,19 @@ public class RootPflow implements Root, WindowListener, ListSelectionListener, S
 		placePopup.add(setLabel);
 		placePopup.add(setTokens);
 		placePopup.add(setPlaceStatic);
+		placePopup.add(setColor);
 		placePopup.addSeparator();
 		placePopup.add(cutAction);
 		placePopup.add(copyAction);
 		placePopup.add(delete);
+		
 		
 		transitionPopup = new JPopupMenu();
 		transitionPopup.add(setLabel);
 		transitionPopup.add(convertTransitionToSubnet);
 		transitionPopup.add(addSelectedTransitionsToSelectedRoles);
 		transitionPopup.add(removeSelectedTransitionsFromSelectedRoles);
+		transitionPopup.add(setColor);
 		transitionPopup.addSeparator();
 		transitionPopup.add(cutAction);
 		transitionPopup.add(copyAction);
@@ -635,6 +645,7 @@ public class RootPflow implements Root, WindowListener, ListSelectionListener, S
 		subnetPopup.add(convertTransitionToSubnet);
 		subnetPopup.add(addSelectedTransitionsToSelectedRoles);
 		subnetPopup.add(removeSelectedTransitionsFromSelectedRoles);
+		subnetPopup.add(setColor);
 		subnetPopup.addSeparator();
 		subnetPopup.add(cutAction);
 		subnetPopup.add(copyAction);
@@ -642,6 +653,7 @@ public class RootPflow implements Root, WindowListener, ListSelectionListener, S
 		
 		arcEdgePopup = new JPopupMenu();
 		arcEdgePopup.add(setArcMultiplicity);
+		arcEdgePopup.add(setColor);
 		arcEdgePopup.add(delete);
 		
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true);

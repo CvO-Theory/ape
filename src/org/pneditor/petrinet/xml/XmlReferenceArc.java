@@ -36,4 +36,7 @@ public class XmlReferenceArc {
 	@XmlElement(name="breakPoint")
 	public List<XmlPoint> breakPoints = new LinkedList<XmlPoint>();
 	
+	@XmlElement(name="color")
+    public int color;
+	
 }

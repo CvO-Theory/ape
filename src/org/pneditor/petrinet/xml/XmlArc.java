@@ -44,4 +44,7 @@ public class XmlArc {
 	
 	@XmlElement(name="realDestinationId")
 	public String realDestinationId;
+	
+	@XmlElement(name="color")
+	public int color;
 }

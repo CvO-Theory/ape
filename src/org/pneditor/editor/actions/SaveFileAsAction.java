@@ -50,14 +50,15 @@ public class SaveFileAsAction extends AbstractAction {
 	public void actionPerformed(ActionEvent e) {
 		FileChooserDialog chooser = new FileChooserDialog();
 
-		if (root.getCurrentFile() != null) {
-			chooser.setSelectedFile(root.getCurrentFile());
-		}
+//		if (root.getCurrentFile() != null) {
+//			chooser.setSelectedFile(root.getCurrentFile());
+//		}
 
-		for (FileType fileType : fileTypes) {
-			chooser.addChoosableFileFilter(fileType);
-		}
-		chooser.setAcceptAllFileFilterUsed(false);
+//		for (FileType fileType : fileTypes) {
+//			chooser.addChoosableFileFilter(fileType);
+//		}
+		//chooser.setAcceptAllFileFilterUsed(false);
+		chooser.setFileFilter(fileTypes.get(0));
 		chooser.setCurrentDirectory(root.getCurrentDirectory());
 		chooser.setDialogTitle("Save as...");
 

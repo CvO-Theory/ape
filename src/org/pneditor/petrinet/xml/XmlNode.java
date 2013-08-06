@@ -25,6 +25,9 @@ import javax.xml.bind.annotation.XmlElement;
  */
 public class XmlNode {
 	
+	@XmlElement(name="color")
+    public int color;
+	
 	@XmlElement(name="id")
 	public String id;
 	
@@ -33,4 +36,6 @@ public class XmlNode {
 	
 	@XmlElement(name="y")
 	public int y;
+	
+	
 }

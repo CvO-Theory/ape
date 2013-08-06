@@ -31,6 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<x><xsl:value-of select="x"/></x>
 	<y><xsl:value-of select="y"/></y>
 	<label><xsl:value-of select="label"/></label>
+	<color><xsl:value-of select="color"/></color>
 	<xsl:for-each select="place">
 		<place>
 			<id><xsl:value-of select="id"/></id>
@@ -39,6 +40,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<label><xsl:value-of select="label"/></label>
 			<tokens><xsl:value-of select="tokens"/></tokens>
 			<isStatic><xsl:value-of select="isStatic"/></isStatic>
+			<color><xsl:value-of select="color"/></color>
 		</place>
 	</xsl:for-each>
 	<xsl:for-each select="transition">
@@ -47,6 +49,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<x><xsl:value-of select="x"/></x>
 			<y><xsl:value-of select="y"/></y>
 			<label><xsl:value-of select="label"/></label>
+			<color><xsl:value-of select="color"/></color>
 		</transition>
 	</xsl:for-each>
 	<xsl:for-each select="arc">
@@ -60,6 +63,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<y><xsl:value-of select="y"/></y>
 				</breakPoint>
 			</xsl:for-each>
+			<color><xsl:value-of select="color"/></color>
 		</arc>
 	</xsl:for-each>
 	<xsl:for-each select="subnet">
@@ -78,6 +82,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<x><xsl:value-of select="x"/></x>
 			<y><xsl:value-of select="y"/></y>
 			<connectedPlaceId><xsl:value-of select="connectedPlaceId"/></connectedPlaceId>
+			<color><xsl:value-of select="color"/></color>
 		</referencePlace>
 	</xsl:for-each>
 	<xsl:for-each select="referenceArc">
@@ -90,6 +95,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					<y><xsl:value-of select="y"/></y>
 				</breakPoint>
 			</xsl:for-each>
+			<color><xsl:value-of select="color"/></color>
 		</referenceArc>
 	</xsl:for-each>
 </xsl:template>
