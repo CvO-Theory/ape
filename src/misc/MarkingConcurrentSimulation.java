@@ -23,11 +23,12 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
-import org.pneditor.petrinet.Document;
-import org.pneditor.petrinet.Marking;
-import org.pneditor.petrinet.PetriNet;
-import org.pneditor.petrinet.Place;
-import org.pneditor.petrinet.xml.DocumentImporter;
+
+import org.ape.petrinet.model.Document;
+import org.ape.petrinet.model.Marking;
+import org.ape.petrinet.model.PetriNet;
+import org.ape.petrinet.model.Place;
+import org.ape.petrinet.xml.DocumentImporter;
 
 /**
  *

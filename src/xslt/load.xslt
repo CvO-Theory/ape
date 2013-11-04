@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright (C) 2008-2010 Martin Riesz <riesz.martin at gmail.com>
+Copyright (C) 2013 Hillit Saathoff <mail at hillit.de>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
