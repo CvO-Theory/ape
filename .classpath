@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Users/hillit/Library/stringtemplate-4.0.2.jar"/>
-	<classpathentry kind="lib" path="/Users/hillit/Documents/Studium/Informatik/BA/APT/apt/apt.jar"/>
+	<classpathentry kind="lib" path="libs/apt.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/stringtemplate-4.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
