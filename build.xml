@@ -9,6 +9,7 @@
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
+    <import file="build-jar.xml"/>
     <path id="APE.classpath">
         <pathelement location="bin"/>
         <pathelement location="libs/apt.jar"/>
@@ -18,6 +19,7 @@
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
+                <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>

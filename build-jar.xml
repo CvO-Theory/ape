@@ -1,0 +1,13 @@
+<?eclipse.ant.import?>
+<project basedir="." default="jar" >
+  <target name ="jar" depends="build" description="Create a jar for the APE project">
+    <jar destfile="APE.jar" basedir="bin">
+      <manifest>
+       <attribute name="Main-Class" value="org.ape.editor.Main"/>
+      </manifest>
+        <fileset dir="bin" includes="**/*.class"/>
+        <!-- <fileset dir="artwork" includes="*"/> -->
+        <zipgroupfileset dir="libs" includes="*.jar"/>
+    </jar>
+  </target>
+</project>
